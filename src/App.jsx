@@ -1,9 +1,26 @@
+import { useState } from 'react'
+import Form from "./components/Form"
+import Header from "./components/Header"
+import ShoppingList from "./components/ShoppingList"
 
 function App() {
+    const [listItem, setListItem] = useState("")
+    const [items, setItems] = useState([])
 
   return (
     <>
-      <h1 className="text-3xl text-red-500 text-center">APP PAGE</h1>
+      <div className="bg-violet-200 min-h-screen">
+        <Header />
+        <Form 
+          listItem={listItem}
+          setListItem={setListItem}
+          items={items}
+          setItems = {setItems}
+        />
+        <ShoppingList 
+          items = {items}
+        />
+      </div>
     </>
   )
 }
