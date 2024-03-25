@@ -5,7 +5,7 @@ import ShoppingList from "./components/ShoppingList"
 
 function App() {
     const [listItem, setListItem] = useState("")
-    const [items, setItems] = useState([])
+    const [listItems, setListItems] = useState([])
 
   return (
     <>
@@ -14,11 +14,12 @@ function App() {
         <Form 
           listItem={listItem}
           setListItem={setListItem}
-          items={items}
-          setItems = {setItems}
+          listItems={listItems}
+          setListItems = {setListItems}
         />
         <ShoppingList 
-          items = {items}
+          listItems={listItems}
+          setListItems = {setListItems}
         />
       </div>
     </>

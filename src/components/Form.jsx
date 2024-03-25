@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; // Import PropTypes// import { useState } from 'react'
-import { FaPlusSquare } from "react-icons/fa";
-const Form = ( {listItem, setListItem, items, setItems} ) => {
+import { FaSquarePlus } from "react-icons/fa6";
+const Form = ( {listItem, setListItem, listItems, setListItems} ) => {
     // const [listItem, setListItem] = useState("")
     // const [items, setItems] = useState([])
 
@@ -9,7 +9,13 @@ const Form = ( {listItem, setListItem, items, setItems} ) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setItems([...items, listItem])
+        // Check the input (input should not be null)
+        if (listItem === "") {
+            alert ("Enter an item please . . .")
+            return
+        }
+
+        setListItems([...listItems, listItem])
         setListItem("")
     }
 
@@ -17,7 +23,7 @@ const Form = ( {listItem, setListItem, items, setItems} ) => {
       <div className="flex flex-col items-center pt-4">
           <form
               onSubmit={(e) => handleSubmit(e)}
-              className="flex justify-between items-center text-lg w-[360px] h-12 bg-orange-200 px-2 rounded-md">
+              className="flex justify-between items-center text-lg w-[360px] h-12 bg-slate-200 px-2 rounded-md">
               <input
                   onChange={(e) => setListItem(e.target.value)}
                   value={listItem}
@@ -30,7 +36,7 @@ const Form = ( {listItem, setListItem, items, setItems} ) => {
                       type="submit"
                       onClick = {(e) => handleSubmit(e)}
                         >
-                      <FaPlusSquare className="text-4xl text-orange-500 cursor-pointer" />
+                      <FaSquarePlus className="text-4xl text-orange-500 shadow-slate-500 rounded-md shadow-sm active:shadow-none cursor-pointer" />
                   </button>
               </div>
           </form>
@@ -42,8 +48,8 @@ const Form = ( {listItem, setListItem, items, setItems} ) => {
 Form.propTypes = {
     listItem: PropTypes.string.isRequired,
     setListItem: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired,
-    setItems: PropTypes.func.isRequired,
+    listItems: PropTypes.array.isRequired,
+    setListItems: PropTypes.func.isRequired,
 };
 
 export default Form
