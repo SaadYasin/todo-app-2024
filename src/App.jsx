@@ -4,7 +4,8 @@ import Header from "./components/Header"
 import ShoppingList from "./components/ShoppingList"
 
 function App() {
-    const [listItem, setListItem] = useState("")
+  // const [listItem, setListItem] = useState("")
+  const [listItem, setListItem] = useState( {name: "", done: false} )
     const [listItems, setListItems] = useState([])
 
   return (

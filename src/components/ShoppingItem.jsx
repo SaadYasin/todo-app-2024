@@ -9,10 +9,10 @@ const ShoppingItem = ({ listItem, listItems, setListItems }) => {
   }
   return (
         <li
-              key={listItem}
+              key={listItem.name}
             className='flex items-center justify-between w-[340px] p-2 mb-1 bg-yellow-200 mx-auto rounded-sm'
           >
-            {listItem}
+            {listItem.name}
             <div className="flex items-center gap-2">
               <IoCheckmark className="text-3xl text-white bg-green-600 rounded-sm shadow-slate-400 shadow-md cursor-pointer active:shadow-none"/>
               <FaTrashAlt
@@ -24,7 +24,7 @@ const ShoppingItem = ({ listItem, listItems, setListItems }) => {
   )
 }
 ShoppingItem.propTypes = {                    // Corrected property name
-  listItem: PropTypes.string.isRequired,
+  listItem: PropTypes.object.isRequired,
   listItems: PropTypes.array.isRequired,
   setListItems: PropTypes.func.isRequired,
 }

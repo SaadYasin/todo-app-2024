@@ -9,14 +9,14 @@ const Form = ( {listItem, setListItem, listItems, setListItems} ) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        // Check the input (input should not be null)
-        if (listItem === "") {
-            alert ("Enter an item please . . .")
-            return
-        }
+        // // Check the input (input should not be null)
+        // if (listItem === "") {
+        //     alert ("Enter an item please . . .")
+        //     return
+        // }
 
         setListItems([...listItems, listItem])
-        setListItem("")
+        setListItem({name: "", done: false})
     }
 
   return (
@@ -25,8 +25,8 @@ const Form = ( {listItem, setListItem, listItems, setListItems} ) => {
               onSubmit={(e) => handleSubmit(e)}
               className="flex justify-between items-center text-lg w-[360px] h-12 bg-slate-200 px-2 rounded-md">
               <input
-                  onChange={(e) => setListItem(e.target.value)}
-                  value={listItem}
+                  onChange={(e) => setListItem({name:e.target.value, done:false})}
+                  value={listItem.name }
                   type="text"
                   placeholder="Enter shopping item . . ."
                   className="bg-transparent w-full outline-none placeholder-slate-500"
@@ -46,7 +46,7 @@ const Form = ( {listItem, setListItem, listItems, setListItems} ) => {
 }
 
 Form.propTypes = {
-    listItem: PropTypes.string.isRequired,
+    listItem: PropTypes.object.isRequired,
     setListItem: PropTypes.func.isRequired,
     listItems: PropTypes.array.isRequired,
     setListItems: PropTypes.func.isRequired,

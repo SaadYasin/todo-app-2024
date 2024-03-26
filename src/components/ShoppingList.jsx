@@ -10,10 +10,10 @@ const ShoppingList = ({ listItems, setListItems }) => {
   return (
     <div className='mt-8'>
       <ul>
-        {listItems.map((listItem) => (
+        {listItems.map((item) => (
           <ShoppingItem 
-            key = {listItem}
-            listItem={listItem}
+            key = {item.name}
+            listItem={item}
             listItems={listItems}
             setListItems = {setListItems}
          />          
